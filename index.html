@@ -1,0 +1,156 @@
+<!Doctype HTML>
+<html>
+    <head>
+    <title>Лабораторная №3</title>
+        <style>
+            .Button_Pos{
+                margin-top: 10px;
+                margin-left: 110px;
+                margin-bottom: 10px;
+            }
+            #Img{
+                display: none;
+            }
+            #Img.on{
+                display: inline;
+            }
+            .Div1{
+                width: 310px;
+                height: 250px;
+                
+            }
+/*
+            .Div1 img{
+                width: 310px;
+                height: 250px;
+                
+            }
+*/
+            div.Div1 {
+            position: relative }
+            div.Div1 p {
+                position: absolute;
+                left: 50%;
+                margin-right: -50%;
+                transform: translate(-50%, -50%) }
+        
+        </style>
+        
+    <script type='text/javascript'>
+        function Show(){
+        var element = document.getElementById('Img');
+        element.className='on';
+        };
+        function NewWidth(){
+            var text = document.getElementById("Text1");
+            var val = text.value;
+            if(val.length==0){
+                alert("Введите значение!")
+            }
+            else{
+            document.getElementById('Img').width = val;
+            }
+        };
+        function NewHeight(){
+            var text = document.getElementById("Text2");
+            var value = text.value;
+            if(value.length==0){
+                alert("Введите значение!")
+            }
+            else{
+            document.getElementById('Img').height = value;
+            }
+        };
+        function NewBorder(){
+            var text = document.getElementById("Text3");
+            var value = text.value;
+            if(value.length==0){
+                alert("Введите значение!")
+            }
+            else{
+            document.getElementById('Img').border = value;          
+            }
+        };
+
+        function NewAlt(){
+            var text = document.getElementById("Text4");
+            var value = text.value;
+            if(value.length==0){
+                alert("Введите альтернативный текст!")
+            }
+            else{
+            document.getElementById('Img').alt = value;          
+            }
+        };
+        
+        
+        
+        
+        
+function chg(id){
+
+    let rand = Math.floor(Math.random() * (9 - 1 + 1)) + 1;
+
+    var result = Math.round(rand);
+    
+if (document.getElementById(id).src.indexOf("1.png")>0)
+{
+document.getElementById(id).src=result + ".png";
+}
+    else
+    {
+        var Otherpicture = Math.round(Math.floor(Math.random() * (9 - 1 + 1)) + 1);
+        document.getElementById(id).src=Otherpicture + ".png";
+}
+}
+
+
+        
+        
+        
+    </script>
+
+    </head>
+    <body>
+        <div>
+            Для вывода изображения, нажмите на кнопку!           
+        </div>
+        <div>
+        <form>
+            <div>               
+                <input class="Button_Pos" type="button" onclick="Show()" value="Картинка!">
+            </div>
+            <div class="Div1">
+<!--                <p a>Здесь должно быть изображение...</p>-->
+            <img id="Img" src="1.png" alt="Изображение" onClick="chg(this.id)" width="310" height="250">
+            </div>
+            <p></p>
+            <div>
+            <input type="text" id="Text1"/>
+            <input type="button" onclick="NewWidth()" value="Ширина" >
+            </div>
+            <div>
+            <input type="text" id="Text2"/>
+            <input type="button" onclick="NewHeight()" value="Высота" >
+            </div>
+            <div>
+            <input type="text" id="Text3"/>
+            <input type="button" onclick="NewBorder()" value="Толщина рамки!" >
+            </div>
+            <div>
+            <input type="text" id="Text4"/>
+            <input type="button" onclick="NewAlt()" value="Альтернативный текст!" >
+            </div>            
+
+        </form>
+        
+        </div>
+        
+        
+        
+        
+        
+    </body>
+</html>
+
+
